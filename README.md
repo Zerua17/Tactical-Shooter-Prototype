@@ -1,6 +1,6 @@
-#EN
+# EN
 
-##Tactical Shooter Prototype
+## Tactical Shooter Prototype
 
 
 3D Isometric Tactical Game Prototype, made with Unity and C#
@@ -24,9 +24,9 @@ So far, the project includes:
 
 
 
-#ES
+# ES
 
-##Protipo de Juego de Disparos Táctico
+## Protipo de Juego de Disparos Táctico
 
 Prototipo de un Juego Isométrico Táctico en 3D, hecho en Unity con C#
 
