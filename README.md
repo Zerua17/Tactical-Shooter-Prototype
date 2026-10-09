@@ -27,6 +27,11 @@ So far, the project includes:
 
 -Moving a single character to clicked place on the ground.
 
+-Unit Selection System to choose which unit to control
+
+-Idle and Running animations.
+
+-Character rotation towards running direction.
 
 Assets & Resources
 -
@@ -46,7 +51,7 @@ Currently used assets include:
 
 # ES
 
-## Protipo de Juego de Disparos Táctico
+## Prototipo de Juego de Disparos Táctico
 
 Prototipo de un Juego Isométrico Táctico en 3D, hecho en Unity con C#
 
@@ -71,6 +76,12 @@ Hasta ahora, el proyecto incluye:
 -Rastrear la posición del ratón en el mundo del juego.
 
 -Mover un único personaje a una posición clickeada en el suelo.
+
+-Sistema de Seleccion de Unidad para elegir la unidad a controlar
+
+-Animaciones de Reposo y Correr
+
+-Rotación del personaje hacia la dirección en la que corre
 
 
 Assets y Recursos
