@@ -5,6 +5,9 @@ public class Unit : MonoBehaviour
     private Vector3 targetPosition;
     private float moveSpeed = 4f;
     private float stoppingDistance = 0.1f;
+    [SerializeField] private Animator unitAnimator;
+
+    [SerializeField] private float rotateSpeed = 5f;
 
     private void Update()
     {
@@ -12,6 +15,12 @@ public class Unit : MonoBehaviour
         {
             Vector3 moveDirection = (targetPosition - transform.position).normalized;
             transform.position += moveDirection * Time.deltaTime * moveSpeed;
+            transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+            unitAnimator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            unitAnimator.SetBool("IsWalking", false);
         }
 
         if (Input.GetMouseButtonDown(0))
