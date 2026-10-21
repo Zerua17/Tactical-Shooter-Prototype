@@ -43,9 +43,24 @@ public class LevelGrid : MonoBehaviour
         return gridSystem.GetGridPosition(worldPosition);
     }
 
+    public Vector3 GetWorldPosition(GridPosition worldPosition)
+    {
+        return gridSystem.GetWorldPosition(worldPosition);
+    }
+
     public void ChangeUnitGridPosition(GridPosition fromGridPosition, GridPosition toGridPosition, Unit unit)
     {
         RemoveUnitAtGridPosition(fromGridPosition, unit);
         AddUnitAtGridPosition(toGridPosition, unit);
+    }
+
+    public bool IsValidGridPosition(GridPosition gridPosition)
+    {
+       return gridSystem.IsValidGridPosition(gridPosition);
+    }
+
+    public bool IsOccupied(GridPosition gridPosition)
+    {
+        return gridSystem.GetGridObject(gridPosition).IsOccupied();
     }
 }

@@ -1,19 +1,21 @@
 using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GridTest : MonoBehaviour
 {
-    private GridSystem gridSystem;
-    [SerializeField] private Transform gameDebugObjectPrefab;
+    [SerializeField] private Unit unit;
     
     private void Start()
     {
-        gridSystem = new GridSystem(10, 10, 3f);
-        gridSystem.CreateDebugObject(gameDebugObjectPrefab);
+        
     }
 
     private void Update()
     {
-        Debug.Log(gridSystem.GetGridPosition(MouseWorld.GetPosition()));
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            unit.GetMoveAction().GetValidActionGridPositionList();
+        }
     }
 }

@@ -42,4 +42,9 @@ public class GridObject
     {
         this.unitList.Add(unit);   
     }
+
+    public bool IsOccupied()
+    {
+        return unitList.Count > 0;
+    }
 }
