@@ -19,7 +19,7 @@ public class LevelGrid : MonoBehaviour
         }
         Instance = this;
 
-        gridSystem = new GridSystem(10, 10, 3f);
+        gridSystem = new GridSystem(10, 10, 2f);
         gridSystem.CreateDebugObject(gameDebugObjectPrefab);
     }
 
@@ -63,4 +63,8 @@ public class LevelGrid : MonoBehaviour
     {
         return gridSystem.GetGridObject(gridPosition).IsOccupied();
     }
+
+    public int GetGridWidth() => gridSystem.GetWidth();
+
+    public int GetGridHeight() => gridSystem.GetHeight();
 }
