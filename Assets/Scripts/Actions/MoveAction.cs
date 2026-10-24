@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class MoveAction : BaseAction
 {
@@ -40,14 +41,16 @@ public class MoveAction : BaseAction
             this.transform.position = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
             unitAnimator.SetBool("IsWalking", false);
             isActive = false;
+            onActionComplete();
         }
     }
 
 
 
 
-    public void Move(GridPosition gridPosition)
+    public void Move(GridPosition gridPosition, Action onActionComplete)
     {
+        this.onActionComplete = onActionComplete;
         isActive = true;
         this.targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
     }
