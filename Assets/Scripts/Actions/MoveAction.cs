@@ -17,7 +17,10 @@ public class MoveAction : BaseAction
 
     
 
-
+    public override string GetActionName()
+    {
+        return "Move";
+    }
     protected override void Awake()
     {
         base.Awake();
@@ -48,21 +51,18 @@ public class MoveAction : BaseAction
 
 
 
-    public void Move(GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
         this.onActionComplete = onActionComplete;
         isActive = true;
         this.targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
     }
 
-    public bool IsValidActionGridPosition(GridPosition gridPosition)
-    {
-        List<GridPosition> validGridPositionList = GetValidActionGridPositionList();
-        return validGridPositionList.Contains(gridPosition);
-    }
-    public List<GridPosition> GetValidActionGridPositionList()
+    
+    public override List<GridPosition> GetValidActionGridPositionList()
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
+
         GridPosition unitGridPosition = unit.GetGridPosition();
 
         for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
@@ -94,4 +94,6 @@ public class MoveAction : BaseAction
 
         return validGridPositionList;
     }
+
+
 }
