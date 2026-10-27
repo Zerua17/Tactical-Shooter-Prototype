@@ -23,15 +23,9 @@ Current Features
 -
 So far, the project includes:
 
--Tracking the mouse position on the game world.
+-Grid-based unit control
 
--Moving a single character to clicked place on the ground.
-
--Unit Selection System to choose which unit to control
-
--Idle and Running animations.
-
--Character rotation towards running direction.
+-Turn System and Action Points
 
 Assets & Resources
 -
@@ -44,6 +38,8 @@ Currently used assets include:
 -Environment Construction models (Walls, floors and other props)
 
 -Materials
+
+
 
 
 
@@ -73,15 +69,9 @@ Funciones Actuales
 -
 Hasta ahora, el proyecto incluye:
 
--Rastrear la posición del ratón en el mundo del juego.
+-Control de Unidades en un sitema de casillas.
 
--Mover un único personaje a una posición clickeada en el suelo.
-
--Sistema de Seleccion de Unidad para elegir la unidad a controlar
-
--Animaciones de Reposo y Correr
-
--Rotación del personaje hacia la dirección en la que corre
+-Sistema de Turnos y Puntos de Acción
 
 
 Assets y Recursos
@@ -95,6 +85,7 @@ Assets usados actualmente incluyen:
 -Modelos de Construccion de Entorno (Paredes, suelos, etc)
 
 -Materiales
+
 
 
 
