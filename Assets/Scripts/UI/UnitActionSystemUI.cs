@@ -109,6 +109,7 @@ public class UnitActionSystemUI : MonoBehaviour
     private void TurnSystem_OnTurnChange(object sender, EventArgs e)
     {
         UpdateActionPoints();
+        tacticalHUD.gameObject.SetActive(TurnSystem.Instance.IsPlayerTurn);
     }
 
     private void Unit_OnAnyActionPointsChange(object sender, EventArgs e)
