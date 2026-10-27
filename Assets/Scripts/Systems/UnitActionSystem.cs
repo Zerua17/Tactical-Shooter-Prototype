@@ -10,9 +10,14 @@ public class UnitActionSystem : MonoBehaviour
     public event EventHandler OnSelectedUnitChange;
 
     public event EventHandler OnSelectedActionChange;
+    public event EventHandler<bool> OnBusyChange;
+    public event EventHandler OnActionStart;
+
 
     private BaseAction selectedAction;
     private bool isBusy;
+
+    public bool IsBusy => isBusy;
 
     public static UnitActionSystem Instance { get; private set; }
 
@@ -62,8 +67,12 @@ public class UnitActionSystem : MonoBehaviour
 
             if (selectedAction.IsValidActionGridPosition(mouseGridPosition))
             {
-                SetBusy();
-                selectedAction.TakeAction(mouseGridPosition, ClearBusy);
+                if (selectedUnit.TrySpendAP(selectedAction))
+                {
+                    SetBusy();
+                    selectedAction.TakeAction(mouseGridPosition, ClearBusy);
+                    OnActionStart?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
     }
@@ -111,11 +120,13 @@ public class UnitActionSystem : MonoBehaviour
     private void SetBusy()
     {
         isBusy = true;
+        OnBusyChange?.Invoke(this, isBusy);
     }
 
     private void ClearBusy()
     {
         isBusy = false;
+        OnBusyChange?.Invoke(this, isBusy);
     }
 
     public BaseAction GetSelectedAction()

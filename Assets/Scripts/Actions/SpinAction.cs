@@ -48,4 +48,9 @@ public class SpinAction : BaseAction
         };
     }
 
+    public override int GetAPCost()
+    {
+        return 2;
     }
+
+}
