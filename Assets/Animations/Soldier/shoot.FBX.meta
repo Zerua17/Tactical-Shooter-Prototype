@@ -206,7 +206,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -332,13 +332,13 @@ ModelImporter:
     serializedVersion: 3
     human: []
     skeleton:
-    - name: demo_combat_shoot(Clone)
+    - name: shoot(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: -0.04386979, y: -0.0341806, z: -0.018217059, w: 0.9982862}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip001
-      parentName: demo_combat_shoot(Clone)
+      parentName: shoot(Clone)
       position: {x: 0.0012678852, y: 1.1984864, z: -0.10146641}
       rotation: {x: -0.46506345, y: 0.48931393, z: 0.54359925, w: 0.49878636}
       scale: {x: 1, y: 0.99999994, z: 0.99999994}

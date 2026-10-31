@@ -6,10 +6,11 @@ using System;
 
 public class MoveAction : BaseAction
 {
-
-    [SerializeField] private Animator unitAnimator;
     [SerializeField] private float rotateSpeed = 720f;
     [SerializeField] private int maxMoveDistance = 4;
+
+    public event EventHandler OnStartMoving;
+    public event EventHandler OnStopMoving;
 
     
     private Vector3 targetPosition;
@@ -48,54 +49,28 @@ public class MoveAction : BaseAction
             );
 
             
-            if (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
+            /*if (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
             {
                 unitAnimator.SetBool("IsWalking", false);
                 return;
-            }
-
-            
-            unitAnimator.SetBool("IsWalking", true);
+            }*/
 
             transform.position += moveDirection * Time.deltaTime * moveSpeed;
         }
         else
         {
             transform.position = targetPosition;
-            unitAnimator.SetBool("IsWalking", false);
-            isActive = false;
-            onActionComplete();
+          
+            ActionComplete();
+            OnStopMoving?.Invoke(this, EventArgs.Empty);
         }
     }
 
-    /*private void Update()
-    {
-        if (!isActive)
-            return;
-        if (Vector3.Distance(transform.position, targetPosition) >= stoppingDistance)
-        {
-            Vector3 moveDirection = (targetPosition - transform.position).normalized;
-            transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
-            transform.position += moveDirection * Time.deltaTime * moveSpeed;   
-            unitAnimator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            this.transform.position = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
-            unitAnimator.SetBool("IsWalking", false);
-            isActive = false;
-            onActionComplete();
-        }
-    }*/
-
-
-
-
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        this.onActionComplete = onActionComplete;
-        isActive = true;
+        ActionStart(onActionComplete); 
         this.targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+        OnStartMoving?.Invoke(this, EventArgs.Empty);
     }
 
     

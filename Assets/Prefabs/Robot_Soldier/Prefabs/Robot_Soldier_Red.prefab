@@ -74,6 +74,8 @@ GameObject:
   - component: {fileID: 4953570177729582}
   - component: {fileID: 95066877497174294}
   - component: {fileID: 3490874880689408527}
+  - component: {fileID: 2833329855680144700}
+  - component: {fileID: -7569272055214561495}
   m_Layer: 0
   m_Name: Robot_Soldier_Red
   m_TagString: Untagged
@@ -140,6 +142,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unit
   isEnemy: 1
   actionPoints: 2
+--- !u!114 &2833329855680144700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047724519691324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be4e763f9f5bcc4eac7a58b164b54a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
+  healthPoints: 100
+--- !u!114 &-7569272055214561495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047724519691324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c87144116c8c0f408c761885b3d8b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitRagdollSpawner
+  ragdollPrefab: {fileID: 4953570177729582, guid: b27a9adee5d80c943985eea17f693232, type: 3}
+  originalRootBone: {fileID: 4254301903844352}
 --- !u!1 &1055265541920024
 GameObject:
   m_ObjectHideFlags: 0

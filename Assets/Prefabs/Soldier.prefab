@@ -104,6 +104,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectedVisual
   unit: {fileID: 4563341817332707149}
+--- !u!1 &4080103110871877569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3082560000603324799}
+  m_Layer: 7
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3082560000603324799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080103110871877569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.50000036, y: -0.49999964, z: -0.49999964, w: 0.50000036}
+  m_LocalPosition: {x: -1.352, y: -0.2099, z: 0.912}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3816023843764260039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7722295450588511144
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +148,9 @@ GameObject:
   - component: {fileID: 8688918506379087217}
   - component: {fileID: 4212739268083108273}
   - component: {fileID: 6957101310055969294}
+  - component: {fileID: 4399192764409594272}
+  - component: {fileID: 8908909341190503840}
+  - component: {fileID: 3799472591463656609}
   m_Layer: 7
   m_Name: Soldier
   m_TagString: Untagged
@@ -153,6 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96acb6b87c6e1b04a8c0caed58b09337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit
+  isEnemy: 0
+  actionPoints: 2
 --- !u!65 &8688918506379087217
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -186,7 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26f972ae0079e1468788392473d1894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveAction
-  unitAnimator: {fileID: 3816023843754713895}
   rotateSpeed: 20
   maxMoveDistance: 4
 --- !u!114 &6957101310055969294
@@ -201,6 +236,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068fbf7a4a0ce7c47ac31f71568bc8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpinAction
+--- !u!114 &4399192764409594272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722295450588511144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1011730426c02fd469943e39e367cd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShootAction
+  rotateSpeed: 360
+  aimAngleTolerance: 1
+--- !u!114 &8908909341190503840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722295450588511144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60bb722bca7999347a25f689c3985862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitAnimator
+  animator: {fileID: 3816023843754713895}
+  bulletProjectilePrefab: {fileID: 2687196964072693526, guid: 393b04148077f2e4f96f58199425012f, type: 3}
+  shootPointTransform: {fileID: 3082560000603324799}
+--- !u!114 &3799472591463656609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722295450588511144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be4e763f9f5bcc4eac7a58b164b54a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1001 &3816023843764131399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -679,12 +755,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 400000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 3082560000603324799}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
 --- !u!95 &3816023843754713895 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+  m_PrefabInstance: {fileID: 3816023843764131399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3816023843764260039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
   m_PrefabInstance: {fileID: 3816023843764131399}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &3816023843764260091 stripped
