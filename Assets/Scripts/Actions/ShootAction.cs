@@ -176,7 +176,7 @@ public class ShootAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        ActionStart(onActionComplete);
+        
 
         targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
 
@@ -185,6 +185,8 @@ public class ShootAction : BaseAction
 
         aimingTimeCompleted = false;
         canShoot = false;
+
+        ActionStart(onActionComplete);
     }
 
 
@@ -235,5 +237,10 @@ public class ShootAction : BaseAction
 
         return Quaternion.Angle(transform.rotation, targetRotation)
             <= aimAngleTolerance;
+    }
+
+    public Unit GetTargetUnit()
+    {
+        return targetUnit;
     }
 }
